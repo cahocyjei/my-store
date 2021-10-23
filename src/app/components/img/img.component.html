@@ -2,8 +2,8 @@
   <h1>BIENVENIDOS AL CURSO DE COMPONENTES DE ANGULAR</h1>
 </div>
 
-<img width="200" [src]="img" *ngIf="img; else idImg">
+<img width="400" (load)="loadImg()" (error)="imgError()" [src]="img" *ngIf="img; else idImg">
 
 <ng-template #idImg>
-<img src="https://i.imgur.com/ZSljVDl.png" alt="">
+<img [src]="imgDefault" alt="">
 </ng-template>

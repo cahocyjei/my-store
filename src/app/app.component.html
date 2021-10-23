@@ -1,2 +1,2 @@
 <input type="text" [(ngModel)]="title">
-<app-img [img]="title"></app-img>
+<app-img (load)="onLoad($event)" [img]="title"></app-img>
