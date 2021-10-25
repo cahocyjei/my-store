@@ -3,7 +3,7 @@
 </div>
 
 <img width="400" (load)="loadImg()" (error)="imgError()" [src]="img" *ngIf="img; else idImg">
-
+<h3>{{ counter}}</h3>
 <ng-template #idImg>
 <img [src]="imgDefault" alt="">
 </ng-template>
