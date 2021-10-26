@@ -1,9 +1,5 @@
-<div class= box>
-  <h1>BIENVENIDOS AL CURSO DE COMPONENTES DE ANGULAR</h1>
-</div>
-
-<img width="400" (load)="loadImg()" (error)="imgError()" [src]="img" *ngIf="img; else idImg">
-<h3>{{ counter}}</h3>
+<img (load)="loadImg()" (error)="imgError()" [src]="img" *ngIf="img; else idImg">
+<!--<h3>{{ counter}}</h3>-->
 <ng-template #idImg>
 <img [src]="imgDefault" alt="">
 </ng-template>
