@@ -2,7 +2,7 @@
   <div>
     <button (click)= "toggled_button()"><img src="./assets/svg/icon_menu.svg" alt="menu"></button>
     <a href=""><img src="./assets/svg/logo_yard_sale.svg" alt="logo"></a>
-    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt=""></a>
+    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart">{{counter}}</a>
   </div>
   <div class= "side-menu" [class.active]="active_menu">
     <button (click)="toggled_button()">Close</button>
@@ -27,6 +27,6 @@
     <div class= "info">
       <div class= "acount"><a href="">cahocyjei@gmail.com</a></div>
     </div>
-    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="logo"></a>
+    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart">{{counter}}</a>
   </div>
 </div>
