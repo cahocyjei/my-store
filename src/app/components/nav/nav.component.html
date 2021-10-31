@@ -2,14 +2,15 @@
   <div>
     <button (click)= "toggled_button()"><img src="./assets/svg/icon_menu.svg" alt="menu"></button>
     <a href=""><img src="./assets/svg/logo_yard_sale.svg" alt="logo"></a>
-    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart">{{counter}}</a>
+    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart"></a>
+    <span class= "counter">{{counter}}</span>
   </div>
   <div class= "side-menu" [class.active]="active_menu">
     <button (click)="toggled_button()">Close</button>
     <ul>
-      <li><a href="">All</a></li>
-      <li><a href="">Clothes</a></li>
-      <li><a href="">Electronics</a></li>
+      <li><a appHigthligth href="">All</a></li>
+      <li><a appHigthligth href="">Clothes</a></li>
+      <li><a appHigthligth href="">Electronics</a></li>
     </ul>
   </div>
 </div>
@@ -19,14 +20,17 @@
     <nav>
       <a class="logo" href=""><img src="./assets/svg/logo_yard_sale.svg" alt="logo"></a>
       <ul>
-        <li><a href="">All</a></li>
-        <li><a href="">Clothes</a></li>
-        <li><a href="">Electronics</a></li>
+        <li><a appHigthligth href="">All</a></li>
+        <li><a appHigthligth href="">Clothes</a></li>
+        <li><a appHigthligth href="">Electronics</a></li>
       </ul>
     </nav>
     <div class= "info">
-      <div class= "acount"><a href="">cahocyjei@gmail.com</a></div>
+      <div class= "acount"><a appHigthligth href="">cahocyjei@gmail.com</a></div>
     </div>
-    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart">{{counter}}</a>
+    <div class= "cart">
+    <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart"></a>
+    <span class="counter">{{counter}}</span>
+    </div>
   </div>
 </div>

@@ -1,8 +1,9 @@
-<app-nav [counter]= "myShoppingCart.length"></app-nav>
 <p>
   Cantidad de Productos: {{myShoppingCart.length}}
   <br>
-  Total: {{total}}
+  Total: {{total | currency:'USD '}}
+  <br>
+  Today: {{today | date}}
 </p>
   <div class="product--grid">
    <app-product [product]="myProducts"
