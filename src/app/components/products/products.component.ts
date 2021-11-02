@@ -15,11 +15,12 @@ export class ProductsComponent implements OnInit {
   total=0;
   today= new Date();
   date= new Date(2021,1,12);
+  showProductsDetails= false;
 
   myProducts:Product[]=[]
 
   constructor(private storeService:StoreService,private productsService:ProductsService) {
-    this.myShoppingCart= this.storeService.getShoppingCart();
+    this.myShoppingCart= this.storeService.getMyShoppingCart();
    }
 
   ngOnInit(): void {
@@ -30,8 +31,17 @@ export class ProductsComponent implements OnInit {
   }
 
   addToShoppingCart(product:Product){
-    this.storeService.getMyShoppingCart(product);
+    this.storeService.addProductShoppingCart(product);
     this.total= this.storeService.getTotal();
   }
 
+  toggleProductsDetails(){
+    this.showProductsDetails= !this.showProductsDetails;
+  }
+  onShowDetail(id:number){
+    this.productsService.getProduct(id)
+    .subscribe(data=>{
+      console.log(data)
+    })
+  }
 }
