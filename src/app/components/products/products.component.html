@@ -6,16 +6,26 @@
   <br>
   Today: {{today | date}}
 </p>
-  <div class="product--grid">
+
+  <!--Renderiza los productos en component-product-->
+  <div class="product--grid"> <!--Contenedor-->
+                          <!--Recibe del padre-->
    <app-product [product]="myProducts"
    *ngFor="let myProducts of myProducts"
-   (addProduct)= "addToShoppingCart($event)" (showDetail)= "onShowDetail($event)"
+   (addProduct)= "addToShoppingCart($event)" (showProduct)= "onShowDetail($event)"
    ></app-product>
   </div>
-  <div>
-    <div class= "products-details" [class.active]= "showProductsDetails">
+    <!--SLIDE DERECHO--MUESTRA LOS DETALLES DEL PRODUCTO POR ID-->
+  <div class= "products-details" [class.active]= "showProductsDetails">
+    <div *ngIf="productChosen">
       <button (click)= "toggleProductsDetails()">Close</button>
-      CONTENIDO AQUÍ..
+      <h1>{{productChosen.title}}</h1>
+      <p>{{productChosen.description}}</p>
+      <swiper [slidesPerView]= "1">
+        <ng-template swiperSlide *ngFor="let img of productChosen.images">
+          <img [src]="img" alt="">
+        </ng-template>
+      </swiper>
     </div>
   </div>
 

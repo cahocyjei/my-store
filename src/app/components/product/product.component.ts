@@ -8,6 +8,7 @@ import { Product } from '../../models/model.products'
 })
 export class ProductComponent {
 
+  //Recibe del Padre
   @Input() product: Product = {
     id: 0,
     title: "",
@@ -22,8 +23,9 @@ export class ProductComponent {
 
 
   }
+  //Envia al padre
   @Output() addProduct = new EventEmitter<Product>();
-  @Output() showDetail = new EventEmitter<number>();
+  @Output() showProduct = new EventEmitter<number>();
 
   constructor() { }
 
@@ -33,6 +35,6 @@ export class ProductComponent {
   }
 
   onShowDetail(){
-    this.showDetail.emit(this.product.id);
+    this.showProduct.emit(this.product.id);
   }
 }

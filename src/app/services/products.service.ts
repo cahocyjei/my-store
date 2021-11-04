@@ -7,6 +7,7 @@ import {Product} from '../models/model.products'
 })
 export class ProductsService {
 
+  //End point API
   private apiUrl= "https://young-sands-07814.herokuapp.com/api/products"
 
   constructor(private http:HttpClient) { }
@@ -14,7 +15,7 @@ export class ProductsService {
   getAllProducts(){
     return this.http.get<Product[]>(this.apiUrl);
   }
-  getProduct(id:number){
+  getProductById(id:number){
     return this.http.get<Product>(`${this.apiUrl}/${id}`)
   }
 }
