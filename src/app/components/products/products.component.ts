@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { Product} from '../../models/model.products'
+import { createProductDTO, Product} from '../../models/model.products'
 import { StoreService} from '../../services/store.service'
 import { ProductsService} from '../../services/products.service'
 
@@ -58,4 +58,22 @@ export class ProductsComponent implements OnInit {
       this.productChosen= data;
     })
   }
+  createProduct(){
+    const product:createProductDTO= {
+      title:'Nuevo Producto',
+      images:[`https://placeimg.com/640/480/any?random=${Math.random()}`],
+      price:1000,
+      categoryId:2,
+      description:'Este es un producto fenomenal'
+
+    }
+    this.productsService.create(product)
+    .subscribe(data=>{
+      this.myProducts.unshift(data);
+    })
+  }
 }
+function subscribe(arg0: (data: any) => void) {
+  throw new Error('Function not implemented.');
+}
+

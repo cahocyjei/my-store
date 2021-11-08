@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
-import {Product} from '../models/model.products'
+import {Product,createProductDTO} from '../models/model.products'
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,10 @@ export class ProductsService {
     return this.http.get<Product[]>(this.apiUrl);
   }
   getProductById(id:number){
-    return this.http.get<Product>(`${this.apiUrl}/${id}`)
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
+  create(dto:createProductDTO){
+    return this.http.post<Product>(this.apiUrl,dto);
+  }
+
 }
