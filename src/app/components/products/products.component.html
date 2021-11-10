@@ -19,6 +19,8 @@
   <div class= "products-details" [class.active]= "showProductsDetails">
     <div *ngIf="productChosen">
       <button (click)= "toggleProductsDetails()">Close</button>
+      <button (click)="updateProduct()">Actualizar</button>
+      <button (Click)= "deleteProduct()">Delete</button>
       <h1>{{productChosen.title}}</h1>
       <p>{{productChosen.description}}</p>
       <swiper [slidesPerView]= "1">
@@ -26,6 +28,7 @@
           <img [src]="img" alt="">
         </ng-template>
       </swiper>
+
     </div>
   </div>
 

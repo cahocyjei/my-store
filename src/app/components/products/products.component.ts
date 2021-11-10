@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { createProductDTO, Product} from '../../models/model.products'
+import { createProductDTO, Product,UpdateProductDTO} from '../../models/model.products'
 import { StoreService} from '../../services/store.service'
 import { ProductsService} from '../../services/products.service'
 
@@ -72,8 +72,28 @@ export class ProductsComponent implements OnInit {
       this.myProducts.unshift(data);
     })
   }
+
+  updateProduct(){
+    const product:UpdateProductDTO={
+      title:"ahí fue"
+    }
+    const id= this.productChosen.id;
+    this.productsService.update(id,product)
+    .subscribe(data=>{
+      const productIndex = this.myProducts.findIndex(item=>item.id === this.productChosen.id);
+      this.myProducts[productIndex]= data;
+    })
+  }
+  deleteProduct(){
+    const id = this.productChosen.id;
+    this.productsService.delete(id)
+    .subscribe(data=>{
+      const productIndex= this.myProducts.findIndex(item=>item.id === this.productChosen.id);
+      this.myProducts.splice(productIndex,1);
+      
+    })
+  }
 }
-function subscribe(arg0: (data: any) => void) {
-  throw new Error('Function not implemented.');
-}
+
+
 
