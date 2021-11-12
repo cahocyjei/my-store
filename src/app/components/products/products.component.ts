@@ -37,10 +37,10 @@ export class ProductsComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.productsService.getAllProducts()
+    this.productsService.getProductByPage(10, 0)
     .subscribe(data=>{
-      this.myProducts= data;
-    });
+      this.myProducts=data;
+    })
   }
 
   addToShoppingCart(product:Product){
@@ -87,10 +87,11 @@ export class ProductsComponent implements OnInit {
   deleteProduct(){
     const id = this.productChosen.id;
     this.productsService.delete(id)
-    .subscribe(data=>{
+    .subscribe(()=>{
       const productIndex= this.myProducts.findIndex(item=>item.id === this.productChosen.id);
       this.myProducts.splice(productIndex,1);
-      
+      this.showProductsDetails= false;
+
     })
   }
 }

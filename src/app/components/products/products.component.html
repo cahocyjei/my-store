@@ -20,7 +20,7 @@
     <div *ngIf="productChosen">
       <button (click)= "toggleProductsDetails()">Close</button>
       <button (click)="updateProduct()">Actualizar</button>
-      <button (Click)= "deleteProduct()">Delete</button>
+      <button (click)= "deleteProduct()">Delete</button>
       <h1>{{productChosen.title}}</h1>
       <p>{{productChosen.description}}</p>
       <swiper [slidesPerView]= "1">

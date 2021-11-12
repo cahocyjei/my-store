@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import {Product,createProductDTO,UpdateProductDTO} from '../models/model.products'
+import {retry} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +10,17 @@ import {Product,createProductDTO,UpdateProductDTO} from '../models/model.product
 export class ProductsService {
 
   //End point API
-  private apiUrl= "https://young-sands-07814.herokuapp.com/api/products"
+  private apiUrl= `${environment.API_URL}/api/products`;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient){
 
-  getAllProducts(){
-    return this.http.get<Product[]>(this.apiUrl);
   }
   getProductById(id:number){
     return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+  getProductByPage(limit:number,offset:number){
+    return this.http.get<Product[]>(`${this.apiUrl}`,{params:{limit,offset}})
+    .pipe(retry(3));
   }
   create(dto:createProductDTO){
     return this.http.post<Product>(this.apiUrl,dto);
