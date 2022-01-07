@@ -4,7 +4,7 @@
   "homepage": "https://cahocyjei.github.io/my-store",
   "scripts": {
     "predeploy":"npm run build",
-    "deploy":"gh-pages -d build",
+    "deploy":"gh-pages -d dist",
     "ng": "ng",
     "start": "ng serve",
     "start:proxy": "ng serve --proxy-config ./proxy.conf.json",
