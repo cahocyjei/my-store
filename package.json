@@ -1,7 +1,7 @@
 {
   "name": "my-store",
   "version": "0.0.0",
-  "homepage": "https://cahocyjei.github.io/my-store",
+  "homepage": "http://cahocyjei.github.io/my-store",
   "scripts": {
     "predeploy":"npm run build",
     "deploy":"gh-pages -d dist",
