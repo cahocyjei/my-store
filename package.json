@@ -1,9 +1,9 @@
 {
   "name": "my-store",
   "version": "0.0.0",
-  "homepage": "http://cahocyjei.github.io/my-store",
+  "homepage": "https://cahocyjei.github.io/my-store",
   "scripts": {
-    "predeploy":"npm run build",
+    "predeploy":"npm run build && echo cahocyjei.github.io/my-store > ./dist/CNAME",
     "deploy":"gh-pages -d dist",
     "ng": "ng",
     "start": "ng serve",
