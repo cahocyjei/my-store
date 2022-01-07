@@ -1,7 +1,10 @@
 {
   "name": "my-store",
   "version": "0.0.0",
+  "homepage": "https://cahocyjei.github.io/my-store",
   "scripts": {
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
     "ng": "ng",
     "start": "ng serve",
     "start:proxy": "ng serve --proxy-config ./proxy.conf.json",
@@ -20,6 +23,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "gh-pages": "^3.2.3",
     "rxjs": "~6.6.0",
     "swiper": "^7.2.0",
     "tslib": "^2.3.0",

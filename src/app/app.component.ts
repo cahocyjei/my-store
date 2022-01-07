@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import {UsersService} from './services/users.service'
+import {UserDTO} from './models/model.user'
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,8 @@ import {UsersService} from './services/users.service'
 export class AppComponent {
 title = '';
 token = '';
+
+usuarios:UserDTO[]=[];
 
 constructor(private userService:UsersService,private authService:AuthService){}
 
@@ -22,26 +26,23 @@ showMenu= true;
 toggleButton(){
   this.showMenu= !this.showMenu;
 }
-
+//
 createUser(){
-  this.userService.create({name:'Usuario',email:'usuario@gmail.com',password:'4321'
+  const userDto: UserDTO={
+    email:'usuario2@gmail.com',
+    password:'1098',
+    name:'usuario2'
+  }
+  this.userService.create(userDto)
+  .subscribe(data=>{
+    this.usuarios.unshift(data);
+    console.log(data);
 })
-.subscribe(rta=>{
-  console.log(rta);
-})
+}
+//
+getAllUsers(){
+  this.userService.getAll()
+  .subscribe(rta=>console.log(rta));
 }
 
-loginUser(){
-  this.authService.login('usuario@gmail.com','4321')
-  .subscribe(rta=>{
-    this.token= rta.acces_token;
-    console.log(rta);
-  })
-}
-profileUser(){
-this.authService.profile(this.token)
-.subscribe(profile=>{
-  console.log(profile);
-})
-}
 }

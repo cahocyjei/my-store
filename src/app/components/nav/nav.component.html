@@ -26,7 +26,10 @@
       </ul>
     </nav>
     <div class= "info">
-      <div class= "acount"><a appHigthligth href="">cahocyjei@gmail.com</a></div>
+      <div class= "acount"><button *ngIf="!profile; else elseBlock" (click)="loginUser()" >login</button>
+      <ng-template #elseBlock>{{profile?.email}}</ng-template>
+    </div>
+
     </div>
     <div class= "cart">
     <a href=""><img src="./assets/svg/icon_shopping_cart.svg" alt="cart"></a>
